@@ -17,25 +17,36 @@
     </div><!-- /.container-fluid -->
 </section>
 <!-- Default box -->
+@if(session('success'))
+  <div class="alert alert-success">{{ session('success') }}</div>
+@endif
+<a class="btn btn-primary mb-2" href="/pertanyaan/create">Buat Pertanyaan</a>
+@forelse($pertanyaan as $key => $value)
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Title</h3>
-
-        <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
+        <h3 class="card-title">{{$value->judul}}</h3>
+        
+        <div class="card-tools" style="display: flex;">
+            <a href="/pertanyaan/{{$value->id}}" class="btn btn-info btn-sm">Detil</a>
+            <a href="/pertanyaan/{{$value->id}}/edit" class="btn btn-secondary btn-sm">Ubah</a>
+            <form action="/pertanyaan/{{$value->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="submit" value="Hapus" class="btn btn-danger btn-sm">
+            </form>
         </div>
     </div>
     <div class="card-body">
-        Start creating your amazing application!
+        {{$value->isi}}
     </div>
     <!-- /.card-body -->
     <div class="card-footer">
-        Footer
+        Jawaban
     </div>
     <!-- /.card-footer-->
 </div>
+@empty
+  <p>Belum Ada Pertanyaan</p>
+@endforelse
 <!-- /.card -->
 @endsection
