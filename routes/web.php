@@ -29,3 +29,5 @@ Route::get('/items',function(){
 Route::get('/create',function(){
     return view('/items/create');
 });
+
+Route::get('/pertanyaan','PertanyaanController@index');

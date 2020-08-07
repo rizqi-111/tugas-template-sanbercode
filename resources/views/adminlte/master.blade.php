@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Blank Page</title>
+  <title>AdminLTE 3</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,7 +28,11 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
     @yield('content')
+    </section>
+    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
