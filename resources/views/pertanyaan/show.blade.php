@@ -20,16 +20,16 @@
 @if(session('success'))
   <div class="alert alert-success">{{ session('success') }}</div>
 @endif
-<a class="btn btn-primary mb-2" href="/pertanyaan/create">Buat Pertanyaan</a>
+<a class="btn btn-primary mb-2" href="{{ route('pertanyaan.create') }}">Buat Pertanyaan</a>
 @forelse($pertanyaan as $key => $value)
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">{{$value->judul}}</h3>
         
         <div class="card-tools" style="display: flex;">
-            <a href="/pertanyaan/{{$value->id}}" class="btn btn-info btn-sm">Detil</a>
-            <a href="/pertanyaan/{{$value->id}}/edit" class="btn btn-secondary btn-sm">Ubah</a>
-            <form action="/pertanyaan/{{$value->id}}" method="POST">
+            <a href="{{ route('pertanyaan.show',['pertanyaan' => $value->id]) }}" class="btn btn-info btn-sm">Detil</a>
+            <a href="{{ route('pertanyaan.edit',['pertanyaan' => $value->id]) }}" class="btn btn-secondary btn-sm">Ubah</a>
+            <form action="{{ route('pertanyaan.destroy',['pertanyaan' => $value->id]) }}" method="POST">
             @csrf
             @method('DELETE')
             <input type="submit" value="Hapus" class="btn btn-danger btn-sm">

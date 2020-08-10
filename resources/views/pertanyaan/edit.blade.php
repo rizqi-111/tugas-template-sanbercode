@@ -22,7 +22,7 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form role="form" action="/pertanyaan/{{$pertanyaan->id}}" method="POST">
+    <form role="form" action="{{ route('pertanyaan.update',['pertanyaan' => $pertanyaan->id]) }}" method="POST">
     @csrf  
     @method('PUT')
         <div class="card-body">

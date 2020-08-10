@@ -30,16 +30,18 @@ Route::get('/create',function(){
     return view('/items/create');
 });
 
-Route::get('/pertanyaan','PertanyaanController@index');
+// Route::get('/pertanyaan','PertanyaanController@index')->name('pertanyaan.index');
 
-Route::get('/pertanyaan/create','PertanyaanController@create');
+// Route::get('/pertanyaan/create','PertanyaanController@create');
 
-Route::post('/pertanyaan','PertanyaanController@store');
+// Route::post('/pertanyaan','PertanyaanController@store');
 
-Route::get('/pertanyaan/{pertanyaan_id}','PertanyaanController@show');
+// Route::get('/pertanyaan/{pertanyaan_id}','PertanyaanController@show');
 
-Route::get('/pertanyaan/{pertanyaan_id}/edit','PertanyaanController@edit');
+// Route::get('/pertanyaan/{pertanyaan_id}/edit','PertanyaanController@edit');
 
-Route::put('/pertanyaan/{pertanyaan_id}','PertanyaanController@update');
+// Route::put('/pertanyaan/{pertanyaan_id}','PertanyaanController@update');
 
-Route::delete('/pertanyaan/{pertanyaan_id}','PertanyaanController@destroy');
+// Route::delete('/pertanyaan/{pertanyaan_id}','PertanyaanController@destroy');
+
+Route::resource('pertanyaan','PertanyaanController');
