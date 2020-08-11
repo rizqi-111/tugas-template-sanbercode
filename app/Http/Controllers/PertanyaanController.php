@@ -10,8 +10,15 @@ use Carbon\Carbon;
 
 use App\Pertanyaan;
 
+use Auth;
+
 class PertanyaanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index']);
+    }
+    
     public function index(){
         // $pertanyaan = DB::table('pertanyaan')->select('id','judul', 'isi', 'created_at', 'updated_at')->get();
         $pertanyaan = Pertanyaan::all();
@@ -41,7 +48,8 @@ class PertanyaanController extends Controller
 
         $pertanyaan = Pertanyaan::create([
             'judul' => $judul,
-            'isi' => $isi
+            'isi' => $isi,
+            'profil_id' => Auth::user()->id
         ]);
 
         return redirect('/pertanyaan')->with('success','Pertanyaan Berhasil Dikirim');

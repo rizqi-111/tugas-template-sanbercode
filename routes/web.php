@@ -11,7 +11,7 @@
 |
 */
 Route::get('/', function () {
-    return view('/tugas-template/index');
+    return view('welcome');
 });
 
 Route::get('/data-tables', function () {
@@ -45,3 +45,6 @@ Route::get('/create',function(){
 // Route::delete('/pertanyaan/{pertanyaan_id}','PertanyaanController@destroy');
 
 Route::resource('pertanyaan','PertanyaanController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
